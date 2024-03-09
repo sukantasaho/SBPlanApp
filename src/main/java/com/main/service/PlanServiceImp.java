@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.main.config.AppProperties;
+import com.main.config.AppPropertiesConstants;
 import com.main.entity.Plan;
 import com.main.entity.PlanCategory;
 import com.main.repository.IPlanCategoryRepo;
@@ -21,6 +23,15 @@ public class PlanServiceImp implements IPlanService {
 	@Autowired
 	private IPlanCategoryRepo categoryRepo;
 	
+	@Autowired
+	private AppProperties appProps;
+	
+	/*@Autowired
+	public PlanServiceImp(AppProperties appProps)
+	{
+		this.messages = appProps.getMessages();
+		System.out.println(this.messages);
+	}*/
 	@Override
 	public boolean savePlan(Plan plan) {
 		 
@@ -32,7 +43,9 @@ public class PlanServiceImp implements IPlanService {
 		else
 		return false;*/
 		//return plan1.getPlanId()!=null?true:false; 1year exp
-		
+		      Map<String, String> messages = appProps.getMessages();
+		  System.out.println(messages.get(AppPropertiesConstants.PLAN_SAVE_SUCC));
+		  
 		return plan1.getPlanId()!=null;
 	}
 

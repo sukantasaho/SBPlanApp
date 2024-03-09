@@ -1,0 +1,24 @@
+server:
+  port: 3045
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: Chintu1995
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: amrita
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+    plan-api:
+      messages:
+        planSaveSucc:Plan Saved Successfully
+        planSaveFail:Plan Saving Failed
+        planUpdateSucc:Plan Updated Successfully
+        planUpdateFail:Plan Updated Failed
+        planDeleteSucc:Plan Deleted Successfully
+        planDeleteFail:Plan Deletion Failure
+        planStatusChangeSucc:Plan Soft Deletion Success
+        planStatusChangeFail:Plan Soft Deletion Failure
